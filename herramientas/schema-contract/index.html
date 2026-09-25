@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#15131f"><meta name="description" content="Contratos de atributos y validación local de GeoJSON.">
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../../styles.css"><link rel="stylesheet" href="styles.css"><title>Schema Contract Lab · Geodata Governance</title>
+</head>
+<body><main class="shell">
+  <header class="hero"><div><p class="eyebrow">GEODATA GOVERNANCE · 03</p><h1>Schema Contract Lab</h1><p class="lede">Define las reglas que debe cumplir una capa y valida cada entidad antes de publicarla o incorporarla a un análisis.</p></div><span class="privacy">🔒 Solo en este navegador</span></header>
+  <p><a class="tool-link" href="../../">← Todas las herramientas</a></p>
+  <section class="panel import"><div class="head"><div><p class="kicker">01 · DATOS</p><h2>Carga GeoJSON o JSON tabular</h2></div><span id="file-name" class="muted">Sin archivo</span></div>
+    <div class="drop" id="drop" tabindex="0"><b>Arrastra una capa aquí o pulsa para elegirla</b><small>FeatureCollection, Feature o una lista de registros JSON</small><input id="file" type="file" accept=".geojson,.json,application/json"></div>
+    <div class="actions"><button id="demo" class="button secondary">Cargar ejemplo</button><button id="clear" class="button ghost">Limpiar</button></div><p id="status" class="status">Carga una capa para comenzar.</p>
+  </section>
+  <section id="workspace" class="hidden">
+    <section class="panel contract"><div class="head"><div><p class="kicker">02 · CONTRATO</p><h2>Reglas de atributos</h2></div><span class="muted">Ajusta las reglas y pulsa validar</span></div>
+      <p class="hint">Los tipos se infieren a partir de los valores observados. “Obligatorio” rechaza valores vacíos; “Único” detecta duplicados. En números puedes definir límites inclusivos y en texto una lista de valores permitidos separados por comas.</p>
+      <div class="table-wrap"><table class="contract-table"><thead><tr><th>Campo</th><th>Tipo</th><th>Oblig.</th><th>Único</th><th>Mín.</th><th>Máx.</th><th>Valores permitidos</th></tr></thead><tbody id="contract-rows"></tbody></table></div>
+      <div class="actions"><button id="validate" class="button primary">Validar contrato</button><button id="reset-contract" class="button ghost">Restaurar detección</button></div>
+    </section>
+    <section class="metrics"><article><span>Entidades</span><strong id="count">0</strong></article><article><span>Campos</span><strong id="fields">0</strong></article><article class="good"><span>Válidas</span><strong id="valid">0</strong></article><article class="warn"><span>Incidencias</span><strong id="issues">0</strong></article></section>
+    <section class="grid"><article class="panel results"><div class="head"><div><p class="kicker">03 · RESULTADO</p><h2>Incidencias detectadas</h2></div><span id="result-note" class="muted"></span></div><div class="filters"><label>Buscar<input id="query" type="search" placeholder="entidad, campo o regla"></label><label>Severidad<select id="severity"><option value="all">Todas</option><option value="error">Errores</option><option value="warning">Avisos</option></select></label></div><div class="table-wrap"><table><thead><tr><th>Entidad</th><th>Campo</th><th>Regla</th><th>Valor observado</th><th>Detalle</th></tr></thead><tbody id="issue-rows"></tbody></table></div><p id="table-note" class="muted table-note"></p></article><article class="panel summary"><div class="head"><div><p class="kicker">04 · COBERTURA</p><h2>Resumen del contrato</h2></div></div><div id="summary-list" class="summary-list"></div></article></section>
+    <section class="panel export"><div class="head"><div><p class="kicker">05 · SALIDA TRAZABLE</p><h2>Exporta las reglas y la revisión</h2></div></div><p class="muted">El contrato conserva la configuración elegida y el informe incluye el nombre del archivo, la fecha, la cobertura y cada incidencia. No se suben datos.</p><div class="actions"><button id="contract-json" class="button primary">Descargar contrato JSON</button><button id="report-json" class="button secondary">Descargar informe JSON</button><button id="issues-csv" class="button secondary">Descargar incidencias CSV</button></div><pre id="preview" class="preview"></pre></section>
+  </section>
+  <footer><span>Schema Contract Lab · Sin telemetría ni servidor.</span><span>Valida también CRS, licencia y procedencia con GeoMetadata Lab.</span></footer>
+</main><script src="app.js"></script></body></html>

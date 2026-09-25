@@ -24,3 +24,14 @@ Abre `index.html` o sirve esta carpeta con cualquier servidor estático. No requ
 Compara dos versiones de una capa GeoJSON directamente en el navegador y clasifica cada entidad como nueva, eliminada, modificada o sin cambios. Permite elegir la clave de comparación, distinguir cambios de geometría y atributos, buscar resultados y exportar un informe JSON/CSV junto con un GeoJSON de entidades nuevas o modificadas. Las entidades eliminadas permanecen en el informe porque ya no tienen geometría en la versión nueva.
 
 Los archivos nunca se suben a un servidor. Conserva la procedencia, la fecha y la licencia de las capas al compartir los informes.
+
+## Schema Contract Lab
+
+Define un contrato de atributos para una capa GeoJSON y valida en el navegador:
+
+- tipo esperado de cada campo: texto, número, booleano o fecha;
+- obligatoriedad, unicidad, límites numéricos y catálogo de valores permitidos;
+- incidencias por entidad, campo, regla, valor observado y severidad;
+- exportación del contrato JSON, informe de validación JSON e incidencias CSV.
+
+La detección inicial de tipos es una sugerencia editable. La validación incluye un aviso para entidades sin geometría y no modifica el archivo de origen.
