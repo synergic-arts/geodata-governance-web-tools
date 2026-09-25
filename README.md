@@ -18,3 +18,9 @@ El archivo se procesa íntegramente en el navegador. No se realiza ninguna petic
 ## Uso
 
 Abre `index.html` o sirve esta carpeta con cualquier servidor estático. No requiere Node.js ni dependencias.
+
+## Layer Diff
+
+Compara dos versiones de una capa GeoJSON directamente en el navegador y clasifica cada entidad como nueva, eliminada, modificada o sin cambios. Permite elegir la clave de comparación, distinguir cambios de geometría y atributos, buscar resultados y exportar un informe JSON/CSV junto con un GeoJSON de entidades nuevas o modificadas. Las entidades eliminadas permanecen en el informe porque ya no tienen geometría en la versión nueva.
+
+Los archivos nunca se suben a un servidor. Conserva la procedencia, la fecha y la licencia de las capas al compartir los informes.

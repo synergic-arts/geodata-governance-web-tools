@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#15131f"><meta name="description" content="Comparador local y auditable de versiones GeoJSON.">
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../../styles.css"><link rel="stylesheet" href="styles.css"><title>Layer Diff · Geodata Governance</title>
+</head>
+<body><main class="shell">
+  <header class="hero"><div><p class="eyebrow">GEODATA GOVERNANCE · 02</p><h1>Layer Diff</h1><p class="lede">Compara dos versiones GeoJSON por una clave estable y convierte los cambios en un informe que se pueda revisar y archivar.</p></div><span class="privacy">🔒 Todo queda en este navegador</span></header>
+  <p><a class="tool-link" href="../../">← Todas las herramientas</a></p>
+  <section class="panel import"><div class="head"><div><p class="kicker">01 · VERSIONES</p><h2>Selecciona las dos capas</h2></div><span class="muted">No se envían archivos</span></div>
+    <div class="file-grid">
+      <label class="file-card"><span class="file-tag">BASE</span><b id="base-name">Sin archivo</b><small>Versión anterior o de referencia</small><input id="base-file" type="file" accept=".geojson,.json,application/json"></label>
+      <label class="file-card"><span class="file-tag updated">ACTUALIZADA</span><b id="updated-name">Sin archivo</b><small>Versión nueva que quieres auditar</small><input id="updated-file" type="file" accept=".geojson,.json,application/json"></label>
+    </div>
+    <div class="actions"><button id="demo" class="button secondary">Cargar ejemplo</button><button id="clear" class="button ghost">Limpiar</button></div>
+    <p id="status" class="status">Carga ambas versiones para empezar.</p>
+  </section>
+  <section id="workspace" class="hidden">
+    <section class="panel controls"><div class="head"><div><p class="kicker">02 · REGLA DE EMPAREJAMIENTO</p><h2>¿Qué campo identifica cada entidad?</h2></div><span id="key-note" class="muted"></span></div><div class="control-row"><label>Clave<select id="key"></select></label><p class="hint">Se recomienda un identificador persistente. El índice de fila solo sirve para inspecciones rápidas y no detecta reordenaciones.</p></div></section>
+    <section class="metrics"><article class="added"><span>Nuevas</span><strong id="added">0</strong></article><article class="removed"><span>Eliminadas</span><strong id="removed">0</strong></article><article class="changed"><span>Modificadas</span><strong id="changed">0</strong></article><article><span>Sin cambios</span><strong id="same">0</strong></article></section>
+    <section class="panel results"><div class="head"><div><p class="kicker">03 · AUDITORÍA</p><h2>Resultado entidad a entidad</h2></div><span id="result-count" class="muted"></span></div><div class="filters"><label>Buscar<input id="query" type="search" placeholder="clave o atributo"></label><label>Mostrar<select id="filter"><option value="all">Todo</option><option value="added">Nuevas</option><option value="removed">Eliminadas</option><option value="changed">Modificadas</option><option value="unchanged">Sin cambios</option></select></label></div><div id="warning" class="notice hidden"></div><div class="table-wrap"><table><thead><tr><th>Estado</th><th>Clave</th><th>Detalle</th><th>Entidad actual</th></tr></thead><tbody id="rows"></tbody></table></div><p id="table-note" class="muted table-note"></p></section>
+    <section class="panel export"><div class="head"><div><p class="kicker">04 · SALIDA TRAZABLE</p><h2>Exporta la revisión</h2></div></div><p class="muted">El informe conserva el resumen, la regla usada y el detalle de cada pareja. El GeoJSON incluye las entidades nuevas o modificadas; las eliminadas quedan documentadas en JSON/CSV.</p><div class="actions"><button id="json" class="button primary">Descargar informe JSON</button><button id="csv" class="button secondary">Descargar CSV</button><button id="geojson" class="button secondary">Descargar GeoJSON delta</button></div><pre id="preview" class="preview"></pre></section>
+  </section>
+  <footer><span>Layer Diff · Sin telemetría ni servidor.</span><span>Comprueba CRS, licencia y procedencia antes de publicar.</span></footer>
+</main><script src="app.js"></script></body></html>
